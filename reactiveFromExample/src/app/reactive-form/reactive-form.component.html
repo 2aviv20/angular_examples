@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="row form-group">
+      <label>
+        Name:
+        <input type="text" class="form-control" formControlName="firstName">
+      </label>
+      <div 
+        class="help-block" 
+        *ngIf="!myForm.get('firstName').valid && myForm.get('firstName').touched">
+          <span *ngIf="myForm.get('firstName').errors['maxLength']">
+            max kength is 8
+          </span>
+          <span *ngIf="myForm.get('firstName').errors['max']">
+            max value is 300
+          </span>
+    </div>
+    </div>
+  
+    <div class="row form-group">
+      <label>
+        Last Name:
+        <input type="text" class="form-control" formControlName="lastName">
+      </label>
+    </div>
+  
+    <div class="row form-group">
+      <label>
+        Age:
+        <input type="text" class="form-control" formControlName="age">
+      </label>
+    </div>
+
+    <div class="row form-group">
+      <button type="submit" [disabled]="!this.myForm.valid">submit</button>
+    </div>
+  </form>
+</div>

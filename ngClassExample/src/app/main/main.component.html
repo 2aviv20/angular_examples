@@ -1,0 +1,5 @@
+<div *ngFor="let user of dataArr" [ngClass]="{redRow: user.role == 1}">
+  <div>{{user.name}}</div> 
+  <div>{{user.role}}</div> 
+  <div>{{user.age}}</div> 
+</div>
